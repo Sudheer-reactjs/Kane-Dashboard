@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import { madeTommy } from "@/lib/fonts";
-import "./globals.css";
+import "../globals.css"; // path may vary
 
 const mulish = Mulish({
   variable: "--font-mulish",
