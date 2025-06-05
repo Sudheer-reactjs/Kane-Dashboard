@@ -94,7 +94,6 @@ export default function RedemptionHistory() {
 
   return (
     <div className="flex flex-col gap-2.5">
-      <h2 className="text-xl leading-loose">Redemption History</h2>
       <div className="rounded bg-[#182226] border border-[#2e2e2e] text-[#c5c5c5] overflow-x-auto">
         <Table>
           <TableHeader>
