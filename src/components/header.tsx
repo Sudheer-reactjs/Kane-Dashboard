@@ -21,6 +21,8 @@ export function AppHeader() {
     pageName = 'User Detail';
   } else if (pathname.startsWith('/blocked-users/') && pathSegments.length === 2) {
     pageName = 'User Detail';
+  } else if (pathname.startsWith('/restaurants/') && pathSegments.length === 2) {
+    pageName = 'Restaurants Detail';
   } else {
     pageName = pathSegments.pop()?.replace(/-/g, ' ') ?? '';
   }
