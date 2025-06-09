@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ChevronDown } from "lucide-react";
 import React from "react";
 const restaurants = [
   { id: 1, name: "Starbucks" },
@@ -44,18 +45,21 @@ const Page = () => {
             </div>
             <div className="flex flex-col gap-2.5">
               <Label> Assign to Restaurants</Label>
+               <div className="relative">
               <select
-    id="restaurant"
-    name="restaurant"
-    className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-[#0a0e11] flex field-sizing-content min-h-12 w-full rounded border bg-[#0a0e11] px-5 py-3.5 text-xs shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[0px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
-  >
-    <option value="">Select a restaurant</option>
-    {restaurants.map((restaurant) => (
-      <option key={restaurant.id} value={restaurant.id}>
-        {restaurant.name}
-      </option>
-    ))}
-  </select>
+                id="restaurant"
+                name="restaurant"
+                className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-[#0a0e11] flex field-sizing-content min-h-12 w-full rounded border bg-[#0a0e11] px-5 py-3.5 text-xs shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[0px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm -webkit-appearance-none appearance-none"
+              >
+                <option value="">Select a restaurant</option>
+                {restaurants.map((restaurant) => (
+                  <option key={restaurant.id} value={restaurant.id}>
+                    {restaurant.name}
+                  </option>
+                ))}
+              </select>
+              <span className="absolute right-[14px] top-[14px] pointer-events-none"><ChevronDown /></span>
+              </div>
             </div>
           </div>
         </div>
