@@ -1,88 +1,77 @@
 "use client";
-import SingleImageUpload from '@/components/restaurants/SingleImageUpload ';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import React, { useState } from 'react';
+import SingleImageUpload from "@/components/restaurants/SingleImageUpload ";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import React, { useState } from "react";
 
 const Page = () => {
-     const [currentImage, setCurrentImage] = useState<File | null>(null);
+  const [currentImage, setCurrentImage] = useState<File | null>(null);
 
   const handleImageSelect = (file: File) => {
     setCurrentImage(file);
-    console.log('Image selected:', file.name);
+    console.log("Image selected:", file.name);
   };
 
   const handleImageRemove = () => {
     setCurrentImage(null);
-    console.log('Image removed');
+    console.log("Image removed");
   };
 
-  const handleUpload = async () => {
-    if (!currentImage) {
-      alert('Please select an image first');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('image', currentImage);
-
-    try {
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        alert('Image uploaded successfully!');
-        console.log('Upload result:', result);
-      } else {
-        alert('Upload failed');
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        alert('Upload error: ' + error.message);
-      } else {
-        alert('Upload error: ' + String(error));
-      }
-    }
-  };
-    return (
-        <>
-           <div className="bg-[#0a0e11] rounded border border-[#2e2e2e] py-5 px-7 flex flex-col gap-2.5" >
-              <h2 className="text-xl leading-loose">Restaurant Details</h2>
-              <div className='flex gap-10'>
-                 <div className='w-full max-w-[250px] min-w-[250px]'>
-                     <h3></h3>
-                     <SingleImageUpload
-                        onImageSelect={handleImageSelect}
-                        onImageRemove={handleImageRemove}
-                        placeholder="Upload Restaurant Logo"
-                      />
-                      {currentImage && (
-            <div className="mt-6 text-center">
-              <button
-                onClick={handleUpload}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition-colors"
-              >
-                Upload Cover Photo
-              </button>
-            </div>
-          )}
-                 </div>
-                 <div className='w-full'>
-                     <div className="grid gap-3">
-                             <Label htmlFor="email" className="text-sm">
-                               Email Address
-                             </Label>
-                             <Input id="email" type="email" placeholder="m@example.com" required />
-                           </div>
-                 </div>
+  return (
+    <>
+      <div className="bg-[#0a0e11] rounded border border-[#2e2e2e] p-4 md:py-5 md:px-7  flex flex-col gap-2.5">
+        <h2 className="text-xl leading-loose">Restaurant Details</h2>
+        <form>
+          <div className="flex flex-col lg:flex-row gap-10">
+            <div className="w-full max-w-[250px] md:min-w-[250px]">
+              <div className="flex flex-col gap-3">
+                <Label className="text-sm">Restaurant logo</Label>
+                <SingleImageUpload
+                  onImageSelect={handleImageSelect}
+                  onImageRemove={handleImageRemove}
+                  placeholder="Upload Restaurant Logo"
+                  className="rounded-[50%]"
+                />
+                {currentImage && (
+                  <div className="text-xs text-gray-400 mt-2 hidden">
+                    Selected image: {currentImage.name}
+                  </div>
+                )}
               </div>
-           </div>
-
-        </>
-    );
-}
+            </div>
+            <div className="flex flex-col gap-7 w-full">
+              <div className="flex flex-col gap-3">
+                <Label htmlFor="name" className="text-sm">
+                  Restaurant Name
+                </Label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Restaurant Name"
+                  required
+                />
+              </div>
+              <Button className="max-w-max px-[30px] py-2.5 bg-[#e4bc84] rounded inline-flex justify-center items-center gap-2 text-[#0a0e11] text-sm font-normal">
+                Save
+              </Button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div className="bg-[#0a0e11] rounded border border-[#2e2e2e] p-4 md:py-5 md:px-7 flex flex-col gap-2.5">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2">
+          <h2 className="text-xl leading-loose">Restaurant Offers</h2>
+          <a
+            href="/add-new-offers"
+            className="px-[30px] py-2.5 bg-[#e4bc84] rounded inline-flex justify-center items-center gap-2 text-[#0a0e11] text-sm font-normal"
+          >
+            Add New Offers
+          </a>
+        </div>
+      </div>
+    </>
+  ); 
+};
 
 export default Page;
