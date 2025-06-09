@@ -373,7 +373,7 @@ const Page = () => {
                       <Label className="text-sm">Description</Label>
                       {isEditMode ? (
                         <Textarea
-                          className="!bg-[#0A0E11] h-24 !text-xs"
+                          className="!bg-[#0A0E11] !text-xs"
                           value={editFormData.description}
                           onChange={(e) => handleInputChange('description', e.target.value)}
                         />
@@ -391,7 +391,7 @@ const Page = () => {
                       </Label>
                       {isEditMode ? (
                         <Textarea
-                          className="!bg-[#0A0E11] h-24 !text-xs"
+                          className="!bg-[#0A0E11]  !text-xs"
                           value={editFormData.unlockRewards}
                           onChange={(e) => handleInputChange('unlockRewards', e.target.value)}
                         />
@@ -409,7 +409,7 @@ const Page = () => {
                       </Label>
                       {isEditMode ? (
                         <Textarea
-                          className="!bg-[#0A0E11] h-24 !text-xs"
+                          className="!bg-[#0A0E11] !text-xs"
                           value={editFormData.redeemInStore}
                           onChange={(e) => handleInputChange('redeemInStore', e.target.value)}
                         />

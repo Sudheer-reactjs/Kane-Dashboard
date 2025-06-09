@@ -161,7 +161,7 @@ export default function RestaurantlistTable() {
                       <AlertDialogTrigger className="cursor-pointer rounded inline-flex justify-center items-center font-normal py-2.5 px-7 text-[#c5c5c5] text-xs">
                         Delete
                       </AlertDialogTrigger>
-                      <AlertDialogContent className="rounded-none border-0 bg-[#182226] py-10 md:px-14 md:!max-w-[428px]">
+                      <AlertDialogContent className=" border-0 bg-[#182226] py-10 md:px-14 md:!max-w-[428px]">
                         <AlertDialogHeader>
                           <AlertDialogTitle className="hide" />
                           <AlertDialogDescription className="text-center text-white text-lg font-normal opacity-80 md:!max-w-[220px] m-auto">

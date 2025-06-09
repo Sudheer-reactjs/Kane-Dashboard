@@ -3,6 +3,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import React from "react";
+const restaurants = [
+  { id: 1, name: "Starbucks" },
+  { id: 2, name: "Domino's Pizza" },
+  { id: 3, name: "KFC" },
+  { id: 4, name: "McDonald's" },
+];
 
 const Page = () => {
   return (
@@ -38,7 +44,18 @@ const Page = () => {
             </div>
             <div className="flex flex-col gap-2.5">
               <Label> Assign to Restaurants</Label>
-              <Input />
+              <select
+    id="restaurant"
+    name="restaurant"
+    className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-[#0a0e11] flex field-sizing-content min-h-12 w-full rounded border bg-[#0a0e11] px-5 py-3.5 text-xs shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[0px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+  >
+    <option value="">Select a restaurant</option>
+    {restaurants.map((restaurant) => (
+      <option key={restaurant.id} value={restaurant.id}>
+        {restaurant.name}
+      </option>
+    ))}
+  </select>
             </div>
           </div>
         </div>

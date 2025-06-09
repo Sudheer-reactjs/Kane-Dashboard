@@ -107,7 +107,7 @@ export default function UserProfileCard({ user }: UserProfileCardProps) {
           >
             {user.status === "Blocked" ? "Unblock User" : "Block User"}
           </AlertDialogTrigger>
-          <AlertDialogContent className="rounded-none border-0 bg-[#182226] py-10 md:px-14 md:!max-w-[590px]">
+          <AlertDialogContent className="border-0 bg-[#182226] py-10 md:px-14 md:!max-w-[590px]">
             <AlertDialogHeader>
               <AlertDialogTitle className="hide" />
               <AlertDialogDescription className="text-center text-white text-lg font-normal opacity-80">
